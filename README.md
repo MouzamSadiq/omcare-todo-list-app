@@ -1,50 +1,48 @@
-# React + TypeScript + Vite
+# Omcare Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a minimal Todo application built with React.js.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To run the application locally:
 
-## Expanding the ESLint configuration
+1. **Clone the repository:**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+   ```bash
+   git clone https://github.com/MouzamSadiq/omcare-todo-list-app.git
+   ```
 
-- Configure the top-level `parserOptions` property like this:
+2. **Install dependencies:**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+   ```bash
+   npm install
+   ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+3. **Start the development server:**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+   ```bash
+   npm run dev
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+   The application will be up and running in your browser!
+
+## About the Application
+
+Omcare Todo App is designed to be a simple and minimalistic task management tool. The app supports both light and dark modes and provides the following features:
+
+- **Add and Delete Tasks:** Users can easily add and remove tasks.
+- **Form Validation:** Basic validation prevents adding empty tasks. For more advanced validations, libraries like Formik or React Hook Form with Zod can be integrated. MUI's `TextHelper` can also be utilized for displaying validation messages.
+
+## Code Structure
+
+The codebase is modular and organized into small, reusable components for ease of maintenance and debugging:
+
+- **Main Container:** The primary wrapper for the application.
+- **Form Component:** Handles task input and submission.
+- **List Component:** Maps and displays the list of tasks.
+- **Item Component:** Shows individual tasks along with a delete button.
+- **Alert Component:** A reusable alert component that can be customized via props.
+- **Custom Theme Component:** MUI-based theme switching is handled here, with `createContext` allowing theme updates from anywhere in the application.
+- **ThemeSwitcher Component:** A reusable component for toggling between light and dark modes.
+
+This structure minimizes boilerplate code and enhances the ease of debugging and scalability.
