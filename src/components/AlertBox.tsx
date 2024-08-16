@@ -10,11 +10,11 @@ import {
 } from "@mui/material";
 
 export interface AlertBoxProps {
-  title: string;
-  description: string;
-  modal: boolean;
-  handleAction: () => void;
-  handleClose: () => void;
+  title: string; // Title of the alert dialog
+  description: string; // Description text of the alert dialog
+  modal: boolean; // Boolean to control the visibility of the dialog
+  handleAction: () => void; // Function to handle the action on confirmation
+  handleClose: () => void; // Function to handle the dialog close action
 }
 
 export const AlertBox: React.FC<AlertBoxProps> = ({
@@ -26,14 +26,12 @@ export const AlertBox: React.FC<AlertBoxProps> = ({
 }) => {
   return (
     <Dialog
-      PaperProps={{ sx: { borderRadius: "10px" } }}
-      open={modal}
+      PaperProps={{ sx: { borderRadius: "10px" } }} // Custom styling for the dialog paper
+      open={modal} // Control the visibility of the dialog
       sx={{
-        backdropFilter: "blur(5px) sepia(5%)",
+        backdropFilter: "blur(5px) sepia(5%)", // Apply blur and sepia filter to the backdrop
         "& .MuiDialog-paper": {},
       }}
-      aria-labelledby="dialog-title"
-      aria-describedby="dialog-description"
     >
       <Box
         style={{
@@ -45,7 +43,7 @@ export const AlertBox: React.FC<AlertBoxProps> = ({
         }}
       >
         <DialogTitle id="dialog-title" style={{ fontSize: "20px" }}>
-          {title}
+          {title} {/* Display the title of the dialog */}
         </DialogTitle>
         <Divider variant="middle" sx={{ width: "100%" }} />
         <DialogContent>
@@ -53,14 +51,14 @@ export const AlertBox: React.FC<AlertBoxProps> = ({
             id="dialog-description"
             style={{ textAlign: "center" }}
           >
-            {description}
+            {description} {/* Display the description of the dialog */}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button
             variant="contained"
             color="error"
-            onClick={() => handleAction()}
+            onClick={() => handleAction()} // Call handleAction on confirmation
           >
             Yes
           </Button>

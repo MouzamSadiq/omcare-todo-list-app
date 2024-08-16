@@ -8,6 +8,7 @@ import { Task } from "../../types";
 const TodoAppContainer = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
 
+  // Function to add a new task
   const addTask = (task: string) => {
     const newTask: Task = {
       id: generateUniqueId(),
@@ -16,6 +17,7 @@ const TodoAppContainer = () => {
     setTasks([...tasks, newTask]);
   };
 
+  // Function to delete a task
   const deleteTask = (taskToDelete: Task) => {
     setTasks(tasks.filter((task) => task.id !== taskToDelete.id));
   };

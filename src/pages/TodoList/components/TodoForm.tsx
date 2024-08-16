@@ -2,22 +2,23 @@ import { TextField, Button, Box } from "@mui/material";
 import { FormEvent } from "react";
 
 interface TodoFormProps {
-  addTask: (task: string) => void;
+  addTask: (task: string) => void; // Function to add a new task
 }
 
 const TodoForm: React.FC<TodoFormProps> = ({ addTask }) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent default form submission behavior
-    const form = e.target as HTMLFormElement;
+    const form = e.target as HTMLFormElement; // Typecast the event target to HTMLFormElement
     const task = (
       form.elements.namedItem("task") as HTMLInputElement
-    ).value.trim();
+    ).value.trim(); // Get the value of the input field and trim any whitespace
 
     if (task) {
-      addTask(task);
+      addTask(task); // Call the addTask function with the task value
       form.reset(); // Clear the form input field after successful submission
     }
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <Box sx={{ display: "flex", gap: 2 }} my={2}>

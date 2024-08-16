@@ -5,12 +5,12 @@ import { useState } from "react";
 import { AlertBox } from "../../../components/AlertBox";
 
 interface TodoItemProps {
-  task: Task;
-  deleteTask: (task: Task) => void;
+  task: Task; // Task object containing id and text
+  deleteTask: (task: Task) => void; // Drill down function to delete a task
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ task, deleteTask }) => {
-  const [openAlert, setOpenAlert] = useState(false);
+  const [openAlert, setOpenAlert] = useState(false); // State to manage the alert dialog visibility
 
   return (
     <>
@@ -19,13 +19,14 @@ const TodoItem: React.FC<TodoItemProps> = ({ task, deleteTask }) => {
           <IconButton
             edge="end"
             aria-label="delete"
-            onClick={() => setOpenAlert(true)}
+            onClick={() => setOpenAlert(true)} // Open the alert dialog on delete button click
           >
             <DeleteIcon />
           </IconButton>
         }
       >
-        <ListItemText primary={<Typography>{task.text}</Typography>} />
+        {/* Display the task text */}
+        <ListItemText primary={<Typography>{task.text}</Typography>} />{" "}
       </ListItem>
 
       {openAlert && (
@@ -34,10 +35,10 @@ const TodoItem: React.FC<TodoItemProps> = ({ task, deleteTask }) => {
           description="Are you sure you want to delete this task?"
           modal={openAlert}
           handleAction={() => {
-            deleteTask(task);
-            setOpenAlert(false);
+            deleteTask(task); // Call deleteTask function on confirmation
+            setOpenAlert(false); // Close the alert dialog
           }}
-          handleClose={() => setOpenAlert(false)}
+          handleClose={() => setOpenAlert(false)} // Close the alert dialog without deleting
         />
       )}
     </>

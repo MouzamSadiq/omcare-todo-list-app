@@ -4,8 +4,8 @@ import TodoItem from "./TodoItem";
 import { Task } from "../../../types";
 
 interface TodoListProps {
-  tasks: Task[];
-  deleteTask: (task: Task) => void;
+  tasks: Task[]; // Array of tasks to be displayed
+  deleteTask: (task: Task) => void; // Function to delete a task
 }
 
 const TodoList: React.FC<TodoListProps> = ({ tasks, deleteTask }) => {
