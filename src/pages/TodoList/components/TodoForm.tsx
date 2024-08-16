@@ -28,9 +28,6 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTask }) => {
           fullWidth
           required // Ensures the field is not empty before submission
           placeholder="What is the task today?"
-          InputProps={{
-            style: { color: "#fff" },
-          }}
         />
         <Button type="submit" variant="contained" color="primary">
           Add
